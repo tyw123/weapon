@@ -25,4 +25,10 @@ public class PlayerTest {
         Tom.say();
         verify(fakedOut).println("Tom被打败了");
     }
+    @Test
+    public void should_player_getHurt_farther_test_return_right(){
+        Tom.getHurt(Jay);
+        Tom.say();
+        verify(fakedOut).println("Jay攻击了Tom,Tom受到了40点伤害,Tom剩余生命：60");
+    }
 }

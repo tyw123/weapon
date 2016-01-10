@@ -17,9 +17,11 @@ public class Player {
         this.printer=printer;
     }
 
-    public void getHurt(Player player) {
+    public String getHurt(Player player) {
         this.blood-=player.getAttack();
-        if(this.blood<0){this.goDie();}
+        if(this.blood<0){status=this.goDie();}
+        else{status=player.getName()+"攻击了"+this.name+","+this.name+"受到了"+player.getAttack()+"点伤害,"+this.name+"剩余生命："+this.blood;}
+        return status;
     }
 
     public String goDie() {
@@ -34,6 +36,8 @@ public class Player {
     public int getBlood() {
         return this.blood;
     }
+
+    public String getName(){return this.name;}
 
     public void say() {
         printer.println(status);
